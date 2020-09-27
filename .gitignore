@@ -1,0 +1,15 @@
+*.png
+*.pdf
+*.whl
+
+data*/
+
+fft-features/
+
+model*/
+
+Ripple_files/
+
+wave/
+
+__pycache__/

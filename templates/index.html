@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Noise Parser</title>
+    <script type="text/javascript"
+    src="{{ url_for('static', filename='socket.io.js') }}">
+    </script>
+  </head>
+
+  <body>
+    <button id="start-prediction">Start Prediction</button>
+    <div id="sound-wrapper">
+
+    </div>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <style>
+      #start-prediction{
+        position: fixed;
+      }
+      span{
+        margin:3px;
+        float: left;
+        display: block;
+        font-family: sans-serif;
+      }
+      span.small{
+        font-size: 15px;
+      }
+      span.small-medium{
+        font-size: 20px;
+      }
+      span.medium{
+        font-size:25px;
+        /*text-transform: capitalize;*/
+      }
+      span.large{
+        font-size: 40px;
+        text-transform:uppercase;
+      }
+    </style>
+  </body>
+
+</html>
