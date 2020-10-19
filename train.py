@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 class_names = ["ahh-cathy", "clap-cathy", "knock-cathy", "water-cathy", "jingle-cathy" ]
 
 def load_data(n_features):
-    files = glob.glob('./data-mfccs-no-res/*.npz')
+    files = glob.glob('./data-mfccs-rasp/*.npz')
     print(files)
 
     train_data_set = np.empty([1, n_features])
@@ -51,7 +51,7 @@ def load_data(n_features):
                     ax.set_xlabel("index")
                     ax.set_ylabel("normalized power")
                     ax.set_title(cn)
-                    plt.savefig("test-{}-data.png".format(cn))
+                    plt.savefig("test-{}-data-rasp.png".format(cn))
                     
                 if(data_type=="train"):
                     train_data_set = np.vstack([train_data_set, d])
@@ -76,7 +76,7 @@ def load_data(n_features):
     ax.set_xlabel("index")
     ax.set_ylabel("normalized freq")
     ax.set_title("all normalized data")
-    plt.savefig("all-test-data.png")
+    plt.savefig("all-test-data-rasp.png")
 
     return train_data_set, train_label_set, test_data_set, test_label_set
 
@@ -198,12 +198,12 @@ def train(hidden_nodes, train_data_set, train_label_set, test_data_set, test_lab
     plt.yticks(range(len(class_names)), class_names)
     plt.xlabel("prediction")
     plt.ylabel("truth")
-    plt.savefig("confusion-{}-{}-mfccs-life.png".format(hidden_nodes, len(class_names)))
+    plt.savefig("confusion-{}-{}-mfccs-rasp.png".format(hidden_nodes, len(class_names)))
     print(np.sum(test_performance)/test_performance.shape[0])
 
     
 
-    np.savez("model-mfccs-no-res/life-{}-{}.npz".format(hidden_nodes, len(class_names)), wo=wo, bo=bo, wh=wh, bh=bh)
+    np.savez("model-mfccs-rasp/life-{}-{}.npz".format(hidden_nodes, len(class_names)), wo=wo, bo=bo, wh=wh, bh=bh)
 
 def main():
     #train_data_set, train_label_set, test_data_set, test_label_set = load_data(collect.top_n_freq*collect.n_chunks_per_block)
